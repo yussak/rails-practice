@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: myapp_development
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  web:
+    build: .
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
+      DATABASE_NAME: myapp_development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/myapp
+volumes:
+  db-data:
