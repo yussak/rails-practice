@@ -1,0 +1,77 @@
+<h1>ユーザー登録フォーム</h1>
+
+<%= form_with(model: @user, local: true, id: "user-form") do |f| %>
+  <div>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.email_field :email, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :birthdate, "生年月日" %>
+    <%= select_date Date.today, { start_year: 1950, end_year: Date.today.year }, { required: true, name: "user[birthdate]" } %>
+  </div>
+
+  <div>
+    <%= f.label :gender, "性別" %><br>
+    <%= f.radio_button :gender, "男性", required: true %> 男性
+    <%= f.radio_button :gender, "女性" %> 女性
+    <%= f.radio_button :gender, "その他" %> その他
+  </div>
+
+  <div>
+    <%= f.check_box :has_memo, id: "has-memo-checkbox" %>
+    <%= f.label :has_memo, "追加メモを記入する" %>
+  </div>
+
+  <div id="memo-field" style="display: none;">
+    <%= f.label :memo, "メモ" %>
+    <%= f.text_area :memo, rows: 4, placeholder: "補足事項を記入してください" %>
+  </div>
+
+  <div>
+    <%= f.submit "登録", id: "submit-button" %>
+  </div>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const memoCheckbox = document.getElementById("has-memo-checkbox");
+    const memoField = document.getElementById("memo-field");
+    const form = document.getElementById("user-form");
+
+    memoCheckbox.addEventListener("change", () => {
+      if (memoCheckbox.checked) {
+        memoField.style.display = "block";
+      } else {
+        memoField.style.display = "none";
+      }
+    });
+
+    form.addEventListener("submit", (event) => {
+      const name = form.querySelector("[name='user[name]']").value.trim();
+      const email = form.querySelector("[name='user[email]']").value.trim();
+      const gender = form.querySelector("input[name='user[gender]']:checked");
+      const year = form.querySelector("select[name='user[birthdate(1i)]']").value;
+      const month = form.querySelector("select[name='user[birthdate(2i)]']").value;
+      const day = form.querySelector("select[name='user[birthdate(3i)]']").value;
+
+      if (name === "" || email === "" || !gender || !year || !month || !day) {
+        event.preventDefault();
+        alert("必須項目をすべて入力してください。");
+      }
+
+      if (memoCheckbox.checked) {
+        const memo = form.querySelector("[name='user[memo]']").value.trim();
+        if (memo === "") {
+          event.preventDefault();
+          alert("メモ欄が空です。記入してください。");
+        }
+      }
+    });
+  });
+</script>
