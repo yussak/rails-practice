@@ -213,11 +213,6 @@ GEM
     semantic_range (3.1.0)
     sequel (5.92.0)
       bigdecimal
-    sequel-rails (1.2.4)
-      actionpack (>= 4.0.0)
-      activemodel (>= 4.0.0)
-      railties (>= 4.0.0)
-      sequel (>= 3.28, < 6.0)
     spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -274,7 +269,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0.0)
   sass-rails (>= 6)
   selenium-webdriver
-  sequel-rails
+  sequel (~> 5.0)
   spring
   turbolinks (~> 5)
   tzinfo-data
