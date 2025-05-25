@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get 'hello', to: 'sample#index'
 
   get "erb_only", to: "sample#erb_only"
+
+  post "users", to: "sample#create"
 end

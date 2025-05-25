@@ -1,40 +1,40 @@
 <h1>ユーザー登録フォーム</h1>
 
-<%= form_with(model: @user, local: true, id: "user-form") do |f| %>
+<%= form_tag users_path, local: true, id: "user-form" do %>
   <div>
-    <%= f.label :name, "名前" %>
-    <%= f.text_field :name, required: true %>
+    <%= label_tag "user[name]", "名前" %>
+    <%= text_field_tag "user[name]", "", required: true %>
   </div>
 
   <div>
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, required: true %>
+    <%= label_tag "user[email]", "メールアドレス" %>
+    <%= email_field_tag "user[email]", "", required: true %>
   </div>
 
   <div>
-    <%= f.label :birthdate, "生年月日" %>
+    <%= label_tag "user[birthdate]", "生年月日" %>
     <%= select_date Date.today, { start_year: 1950, end_year: Date.today.year }, { required: true, name: "user[birthdate]" } %>
   </div>
 
   <div>
-    <%= f.label :gender, "性別" %><br>
-    <%= f.radio_button :gender, "男性", required: true %> 男性
-    <%= f.radio_button :gender, "女性" %> 女性
-    <%= f.radio_button :gender, "その他" %> その他
+    <%= label_tag "user[gender]", "性別" %><br>
+    <%= radio_button_tag "user[gender]", "男性", false, required: true %> 男性
+    <%= radio_button_tag "user[gender]", "女性" %> 女性
+    <%= radio_button_tag "user[gender]", "その他" %> その他
   </div>
 
   <div>
-    <%= f.check_box :has_memo, id: "has-memo-checkbox" %>
-    <%= f.label :has_memo, "追加メモを記入する" %>
+    <%= check_box_tag "user[has_memo]", "1", false, id: "has-memo-checkbox" %>
+    <%= label_tag "user[has_memo]", "追加メモを記入する" %>
   </div>
 
   <div id="memo-field" style="display: none;">
-    <%= f.label :memo, "メモ" %>
-    <%= f.text_area :memo, rows: 4, placeholder: "補足事項を記入してください" %>
+    <%= label_tag "user[memo]", "メモ" %>
+    <%= text_area_tag "user[memo]", "", rows: 4, placeholder: "補足事項を記入してください" %>
   </div>
 
   <div>
-    <%= f.submit "登録", id: "submit-button" %>
+    <%= submit_tag "登録", id: "submit-button" %>
   </div>
 <% end %>
 
