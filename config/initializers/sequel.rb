@@ -1,3 +1,13 @@
-# todo:env読みにかえる
-host = ENV.fetch('DATABASE_HOST', 'localhost')
-DB = Sequel.connect(ENV["DATABASE_URL"] || "postgres://postgres:password@#{host}:5432/myapp_development")
+host = ENV["DATABASE_HOST"]
+database = ENV["DATABASE_NAME"]
+user = ENV["DATABASE_USER"]
+password = ENV["DATABASE_PASSWORD"]
+
+DB = Sequel.connect(
+  adapter: 'postgres',
+  host: ENV['DATABASE_HOST'],
+  port: ENV['DATABASE_PORT'],
+  user: ENV['DATABASE_USER'],
+  password: ENV['DATABASE_PASSWORD'],
+  database: ENV['DATABASE_NAME']
+)
