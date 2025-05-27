@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'hello', to: 'sample#index'
 
   get "erb_only", to: "sample#erb_only"
+  get "erb_to_react", to: "sample#erb_to_react"
 
   post "users", to: "sample#create"
 end

@@ -20,6 +20,10 @@ class SampleController < ApplicationController
     # erb_only.html.erbを呼ぶ用
   end
 
+  def erb_to_react
+    # erb_to_react.html.erbを呼ぶ用
+  end
+
   private
 
   def user_params
