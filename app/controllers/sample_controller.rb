@@ -1,4 +1,6 @@
 class SampleController < ApplicationController
+  # todo:確認画面作る
+  
   def index
     # hello_react.jsxを呼ぶ用
   end

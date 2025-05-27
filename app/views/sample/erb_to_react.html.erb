@@ -4,11 +4,6 @@
   <%= react_component("Form") %>
 
   <div>
-    <%= label_tag "user[email]", "メールアドレス" %>
-    <%= email_field_tag "user[email]", "", required: true %>
-  </div>
-
-  <div>
     <%= label_tag "user[birthdate]", "生年月日" %>
     <%= select_date Date.today, { start_year: 1950, end_year: Date.today.year }, { required: true, name: "user[birthdate]" } %>
   </div>
