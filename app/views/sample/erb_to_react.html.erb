@@ -1,10 +1,7 @@
 <h1>ユーザー登録フォーム React移行用</h1>
 
 <%= form_tag users_path, local: true, id: "user-form" do %>
-  <div>
-    <%= label_tag "user[name]", "名前" %>
-    <%= text_field_tag "user[name]", "", required: true %>
-  </div>
+  <%= react_component("Form") %>
 
   <div>
     <%= label_tag "user[email]", "メールアドレス" %>
