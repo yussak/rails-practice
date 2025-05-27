@@ -18,9 +18,12 @@
 
   <div>
     <%= label_tag "user[gender]", "性別" %><br>
-    <%= radio_button_tag "user[gender]", "男性", false, required: true %> 男性
-    <%= radio_button_tag "user[gender]", "女性" %> 女性
-    <%= radio_button_tag "user[gender]", "その他" %> その他
+    <%= radio_button_tag "user[gender]", "男性", false, required: true, id: "gender_male" %>
+    <%= label_tag "gender_male", "男性" %>
+    <%= radio_button_tag "user[gender]", "女性", false, id: "gender_female" %>
+    <%= label_tag "gender_female", "女性" %>
+    <%= radio_button_tag "user[gender]", "その他", false, id: "gender_other" %>
+    <%= label_tag "gender_other", "その他" %>
   </div>
 
   <div>
