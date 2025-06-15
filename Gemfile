@@ -14,6 +14,8 @@ gem 'puma', '~> 6.0'
 gem 'dartsass-rails'
 # Use importmap to manage JavaScript
 gem 'importmap-rails'
+# React integration for Rails
+gem 'react-rails'
 # Hotwire's SPA-like page accelerator
 gem 'turbo-rails'
 # Hotwire's modest JavaScript framework
