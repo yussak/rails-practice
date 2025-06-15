@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   get "erb_to_react", to: "sample#erb_to_react"
 
   post "users", to: "sample#create"
+
+  resources :todos
+  root 'todos#index'
 end

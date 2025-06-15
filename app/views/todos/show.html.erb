@@ -1,0 +1,17 @@
+<h1><%= @todo.title %></h1>
+
+<div class="todo-details">
+  <p><strong>Description:</strong></p>
+  <p><%= @todo.description %></p>
+  
+  <p><strong>Status:</strong> <%= @todo.completed? ? 'Completed' : 'Pending' %></p>
+  
+  <p><strong>Created:</strong> <%= @todo.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+  <p><strong>Updated:</strong> <%= @todo.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+</div>
+
+<div class="actions">
+  <%= link_to 'Edit', edit_todo_path(@todo), class: 'btn btn-primary' %>
+  <%= link_to 'Delete', todo_path(@todo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <%= link_to 'Back to List', todos_path, class: 'btn btn-secondary' %>
+</div>

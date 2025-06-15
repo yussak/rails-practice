@@ -1,0 +1,35 @@
+<h1>Edit Todo</h1>
+
+<%= form_with model: @todo, local: true do |form| %>
+  <% if @todo.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h4>
+      <ul>
+        <% @todo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :completed %>
+    <%= form.label :completed %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Update Todo', class: 'btn btn-primary' %>
+    <%= link_to 'Show', @todo, class: 'btn btn-info' %>
+    <%= link_to 'Back to List', todos_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
