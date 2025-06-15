@@ -1,25 +1,25 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.4'
+ruby '3.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-# todo: version上げる
-gem 'rails', '~> 6.1.4'
+gem 'rails', '~> 8.0.0'
 # Use postgresql as the database for Sequel
 gem 'pg', '~> 1.1'
 gem 'sequel', '~> 5.0'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-gem 'react-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'puma', '~> 6.0'
+# Use Dart Sass for stylesheets
+gem 'dartsass-rails'
+# Use importmap to manage JavaScript
+gem 'importmap-rails'
+# Hotwire's SPA-like page accelerator
+gem 'turbo-rails'
+# Hotwire's modest JavaScript framework
+gem 'stimulus-rails'
+# Build JSON APIs with ease
+gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

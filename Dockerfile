@@ -1,4 +1,4 @@
-FROM ruby:2.7.4
+FROM ruby:3.3.0
 
 RUN apt-get update -qq
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
@@ -8,6 +8,6 @@ RUN gem update --system 3.3.22
 
 WORKDIR /myapp
 
-COPY Gemfile Gemfile.lock /myapp/
+COPY Gemfile* /myapp/
 
 RUN bundle install
