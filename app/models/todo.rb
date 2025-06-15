@@ -6,6 +6,7 @@ class Todo < Sequel::Model
     errors.add(:title, 'cannot be empty') if !title || title.empty?
   end
 
+  # いるのか？
   def before_create
     super
     self.created_at ||= Time.now
