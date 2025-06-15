@@ -37,4 +37,8 @@ class Todo < Sequel::Model
   def completed?
     completed
   end
+
+  def new_record?
+    new?
+  end
 end

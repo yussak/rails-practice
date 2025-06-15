@@ -25,9 +25,13 @@ class TodosController < ApplicationController
   end
 
   def update
-    if @todo.update(todo_params)
-      redirect_to @todo, notice: 'Todo was successfully updated.'
-    else
+    begin
+      if @todo.update(todo_params)
+        redirect_to @todo, notice: 'Todo was successfully updated.'
+      else
+        render :edit
+      end
+    rescue Sequel::ValidationFailed
       render :edit
     end
   end
